@@ -100,7 +100,8 @@ function get_options {
 ################################################################################
 ## Parse required values out of LocalSetttings.php
 function get_localsettings_vars {
-    LOCALSETTINGS="$INSTALL_DIR/LocalSettings.php"
+    # LOCALSETTINGS="$INSTALL_DIR/LocalSettings.php"
+    LOCALSETTINGS=`readlink -f "$INSTALL_DIR/LocalSettings.php"`
 
     if [ ! -e "$LOCALSETTINGS" ];then
         echo "'$LOCALSETTINGS' file not found."
